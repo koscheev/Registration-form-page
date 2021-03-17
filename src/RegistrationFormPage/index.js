@@ -22,9 +22,13 @@ export class RegistrationForm extends React.Component {
         this.setState({ confirmPassword: event.target.value, error: '' });
     } 
 
+    
     checkData =  () => {
+        const checkPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]$/
         if(this.state.password.length < 8) {
             this.setState({error:'Password must be at least 8 characters'})
+        } else if(!this.state.password.match(checkPassword)) {
+            this.setState({error: 'Пароль должен содержать заглавные и строчные буквы и числа'})
         } else if(this.state.password !== this.state.confirmPassword) {
             this.setState({error: 'Password is not match'})
         } else if(this.state.phone.length !== 13) {
