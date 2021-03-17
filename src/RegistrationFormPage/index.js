@@ -24,7 +24,7 @@ export class RegistrationForm extends React.Component {
 
     
     checkData =  () => {
-        const checkPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]$/
+        const checkPassword = /[a-zA-Z\d]/
         if(this.state.password.length < 8) {
             this.setState({error:'Password must be at least 8 characters'})
         } else if(!this.state.password.match(checkPassword)) {
